@@ -1,0 +1,26 @@
+# Fichiers compilés Java
+*.class
+*.jar
+*.war
+
+# Dossiers de build
+bin/
+out/
+target/
+build/
+
+# IDE IntelliJ
+.idea/
+*.iml
+
+# IDE Eclipse
+.classpath
+.project
+.settings/
+
+# IDE VS Code
+.vscode/
+
+# Cache
+__pycache__/
+*.pyc

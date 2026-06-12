@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.uge.but.schtroumpf.controller.WelcomeController"
+            styleClass="root">
+
+    <center>
+        <!-- StackPane avec image en fond via CSS inline -->
+        <StackPane fx:id="stackRoot"
+                   alignment="CENTER"
+                   style="-fx-background-image: url('fr/uge/but/schtroumpf/view/background.png');
+                          -fx-background-size: cover;
+                          -fx-background-position: center center;
+                          -fx-background-repeat: no-repeat;">
+
+            <!-- Overlay sombre pour lisibilite -->
+            <StackPane style="-fx-background-color: rgba(0,0,0,0.25);"
+                       StackPane.alignment="CENTER"/>
+
+            <!-- Panneau central -->
+            <VBox alignment="CENTER" spacing="16"
+                  maxWidth="520"
+                  StackPane.alignment="CENTER"
+                  style="-fx-background-color: rgba(44,34,23,0.92);
+                         -fx-border-color: #5A4630;
+                         -fx-border-width: 1;
+                         -fx-background-radius: 16;
+                         -fx-border-radius: 16;
+                         -fx-padding: 44 60;
+                         -fx-effect: dropshadow(gaussian,rgba(0,0,0,0.8),28,0,0,6);">
+
+                <Label text="Conseil des Schtroumpfs"
+                       style="-fx-text-fill: #FAC775; -fx-font-size: 30;
+                              -fx-font-weight: bold;"/>
+
+                <Label text="Gerez le village pendant 12 mois.&#10;Equilibrez les ressources, survivez aux crises."
+                       style="-fx-text-fill: #D4B896; -fx-font-size: 14;
+                              -fx-text-alignment: center; -fx-wrap-text: true;"/>
+
+                <HBox prefHeight="1" prefWidth="280"
+                      style="-fx-background-color: #5A4630;"/>
+
+                <Label text="Choisir la difficulte"
+                       style="-fx-text-fill: #B5A68E; -fx-font-size: 13;"/>
+
+                <HBox alignment="CENTER" spacing="0"
+                      style="-fx-border-color: #5A4630; -fx-border-width: 1;
+                             -fx-border-radius: 8; -fx-background-radius: 8;">
+                    <ToggleButton fx:id="btnEasy" text="Facile"
+                                  prefWidth="150" prefHeight="44"
+                                  onAction="#handleEasy"
+                                  styleClass="diff-unselected"/>
+                    <ToggleButton fx:id="btnNormal" text="Normal"
+                                  prefWidth="150" prefHeight="44"
+                                  onAction="#handleNormal"
+                                  styleClass="diff-selected"/>
+                    <ToggleButton fx:id="btnHard" text="Difficile"
+                                  prefWidth="150" prefHeight="44"
+                                  onAction="#handleHard"
+                                  styleClass="diff-unselected"/>
+                </HBox>
+
+                <Label fx:id="diffLabel"
+                       text="Toutes les ressources demarrent a 5/10"
+                       style="-fx-text-fill: #B5A68E; -fx-font-size: 12;"/>
+
+                <Button fx:id="btnStart" text="Nouvelle partie"
+                        prefWidth="380" prefHeight="54"
+                        onAction="#handleStart"
+                        styleClass="btn-primary"
+                        style="-fx-font-size: 16;"/>
+
+                <Button text="Regles du jeu"
+                        prefWidth="380" prefHeight="44"
+                        onAction="#handleRules"
+                        styleClass="btn-secondary"/>
+            </VBox>
+
+        </StackPane>
+    </center>
+</BorderPane>
